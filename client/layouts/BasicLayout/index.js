@@ -1,0 +1,1 @@
+export {default} from "./BasicLayout"; // Exportacion default del BasicLayout.js
