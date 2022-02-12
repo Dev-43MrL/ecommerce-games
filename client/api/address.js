@@ -22,7 +22,7 @@ export async function createAddressApi(data, logout){
 
 export async function getAddressApi(idUser, logout){
     try {
-        const url=`${BASE_PATH}/addresses?user=${idUser}`;
+        const url=`${BASE_PATH}/addresses/${idUser}`;
         const result =await authFetch(url, null, logout);
         if(result.statusCode === 500) throw "Error del Servidor";
         return result;

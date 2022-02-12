@@ -33,7 +33,7 @@ export default function AddressShipping(props) {
                     <Grid>
                         {map(addresses, (address)=>(
                             <Grid.Column 
-                                key={address.id}
+                                key={address._id}
                                 mobile={16}
                                 tablet={8}
                                 computer={4}
@@ -71,7 +71,7 @@ function Address(props){
             <p>{address.title}</p>
             <p>{address.name}</p>
             <p>{address.address}</p>
-            <p>{address.city}, {address.state}, {address.postalCode}</p>
+            <p>{address.city}, {address.estate}, {address.postalCode}</p>
             <p>{address.phone}</p>
         </div>
     )

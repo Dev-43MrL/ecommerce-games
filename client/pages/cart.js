@@ -5,17 +5,22 @@ import useCart from '../hooks/useCart';
 import SummaryCart from '../components/Cart/SummaryCart/SummaryCart';
 import AddressShipping from '../components/Cart/AddressShipping/AddressShipping';
 import Payment from '../components/Payment/Payment';
+import Seo from '../components/Seo';
 
 export default function cart() {
     const {getProductsCart}=useCart();
     const products= getProductsCart();
 
-    return !products? <EmptyCart/> : <FullCart products={products}/>;
+    return !products? 
+        <EmptyCart />
+        : 
+        <FullCart products={products} />;
 }
 
 function EmptyCart(){
     return (
         <BasicLayout className='empty-cart'>
+            <Seo title={`Cart`}/>
             <h2>No hay productos en el carrito</h2>
         </BasicLayout>
     )
@@ -41,6 +46,7 @@ function FullCart(props){
 
     return (
         <BasicLayout className='full-cart'>
+            <Seo title={`Cart`}/>
             <SummaryCart 
                 products={productsData}
                 reloadCart={reloadCart}

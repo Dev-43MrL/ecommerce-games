@@ -18,7 +18,7 @@ export default function Order(props) {
                     <div className='order__info-data'>
                         <Link href={`/${url}`}>
                             <a>
-                                <Image src={poster.url} alt={title} />
+                                <Image src={poster} alt={title} />
                             </a>
                         </Link>
                         <div>
@@ -59,7 +59,7 @@ function AddressModal(props) {
                 <p>{addressShipping.name}</p>
                 <p>{addressShipping.address}</p>
                 <p>
-                    {addressShipping.state}, {addressShipping.city}{" "}
+                    {addressShipping.estate}, {addressShipping.city}
                     {addressShipping.postalCode}
                 </p>
                 <p>{addressShipping.phone}</p>

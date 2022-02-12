@@ -5,10 +5,11 @@ import { getGamesPlatformApi, getTotalGamesPlatformApi } from '../../api/game';
 import { size } from 'lodash';
 import { Loader } from 'semantic-ui-react';
 import ListGames from '../../components/ListGames/ListGames';
-import PaginationScreen from '../../components/PaginationScreen/PaginationScreen';
+import Seo from '../../components/Seo';
+// import PaginationScreen from '../../components/PaginationScreen/PaginationScreen';
 
 
-const limitPerPage=10;
+const limitPerPage=20;
 
 export default function platForm() {
     const {query}=useRouter();
@@ -39,6 +40,7 @@ export default function platForm() {
 
     return (
         <BasicLayout className='platform'>
+            <Seo title={`Games of ${query.platform}`}/>
             {!games && <Loader active>Cargando Juegos</Loader>}
             {games && size(games) === 0 &&(
                 <div>
@@ -47,11 +49,11 @@ export default function platForm() {
             )}
             {size(games) > 0 && <ListGames games={games}/>}
 
-            <PaginationScreen 
+            {/* <PaginationScreen 
                 totalGames={totalGames} 
                 page={query.page? parseInt(query.page):1}
                 limitPerPage={limitPerPage} 
-            />
+            /> */}
             
         </BasicLayout>
     )

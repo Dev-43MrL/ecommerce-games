@@ -20,11 +20,10 @@ export default function loginForm(props) {
             setLoading(true);
 
             const response= await(loginApi(formData));
-            console.log(response);
 
-            if(response?.jwt){
+            if(response?.token){
                 onCloseModal();
-                login(response.jwt),
+                login(response.token),
                 toast.success('Bienvenido', {
                     position: "top-right",
                     autoClose: 3000,
@@ -54,7 +53,7 @@ export default function loginForm(props) {
         const validateEmail=Yup.string().email().required();
 
         if(!validateEmail.isValidSync(formik.values.identifier)){
-            formik.setErrors({identifier:true});
+            formik.setErrors({email:true});
         }else{
             resetPasswordApi(formik.values.identifier);
         }
@@ -63,7 +62,7 @@ export default function loginForm(props) {
     return (
         <Form className='login-form' onSubmit={formik.handleSubmit}>
             <Form.Input
-                name='identifier'
+                name='email'
                 type='text'
                 placeholder='Correo Electronico'
                 onChange={formik.handleChange}
@@ -86,10 +85,10 @@ export default function loginForm(props) {
                     <Button type='button' color='orange' onClick={showRegisterForm}>
                         Registrarse
                     </Button>
-                    <Button.Or />
+                    {/* <Button.Or />
                     <Button type='button' color='yellow' onClick={resetPassword}>
                         ¿Has olvidado la contraseña?
-                    </Button>
+                    </Button> */}
                 </Button.Group>
             </div>
         </Form>
@@ -98,14 +97,14 @@ export default function loginForm(props) {
 
 function initialValues(){
     return{
-        identifier:'',
+        email:'',
         password:''
     }
 }
 
 function validationSchema(){
     return{
-        identifier:Yup.string().email(true).required(true),
+        email:Yup.string().email(true).required(true),
         password:Yup.string().required(true),
     }
 }

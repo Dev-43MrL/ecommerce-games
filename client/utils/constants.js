@@ -1,5 +1,7 @@
-export const BASE_PATH='https://localhost:5000/api';
+export const BASE_PATH='http://localhost:8080/api';
+// export const BASE_PATH='https://e-game.herokuapp.com';
 export const TOKEN='token';
+export const HEADER='x-token';
 export const CART= 'cart';
 export const STRIPE_TOKEN='pk_test_51Ja2zYI8lb3K9042bByrVyO4TRGmgWMkZFvcQvZ7gLTj38MSQRdYjLxHrHrKdMEUut5iiGmuaRJY06Q2VTMFo2O7000ZLwQ2Cw';
 

@@ -14,7 +14,7 @@ export default function ChangePasswordForm(props) {
         validationSchema:Yup.object(validationSchema()),
         onSubmit:async(formData)=>{
             setLoading(true);
-            const response= await updatePasswordApi(user.id, formData, logout);
+            const response= await updatePasswordApi(user.uid, formData, logout);
 
             if(!response){
                 toast.error('Error al actualizar su contraseña', {

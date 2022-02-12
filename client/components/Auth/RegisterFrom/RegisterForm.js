@@ -15,12 +15,29 @@ export default function RegisterForm(props) {
         onSubmit:async(formData)=>{
             setLoading(true);
             const response= await registerApi(formData);
+            console.log(response)
             
-            if(response?.jwt) {
-                toast.success('Registro Correcto');
+            if(response?.token) {
+                toast.success('Registro Correcto',{
+                    position: "top-right",
+                    autoClose: 3000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                });
                 showLoginForm();
             }else{
-                toast.error('Registro ya existe');
+                toast.error('Registro ya existe',{
+                    position: "top-right",
+                    autoClose: 3000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                });
             }
 
             setLoading(false);
@@ -83,7 +100,8 @@ function initialValues(){
         lastname:'',
         username:'',
         email:'',
-        password:''
+        password:'',
+        rol:'USER_ROLE'
     }
 }
 

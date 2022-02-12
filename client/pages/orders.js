@@ -1,10 +1,11 @@
 import React, {useState, useEffect} from 'react';
-import { Grid } from 'semantic-ui-react';
+import { Grid, Loader } from 'semantic-ui-react';
 import { map, size } from 'lodash'; 
 import BasicLayout from '../layouts/BasicLayout';
 import { getOrdersApi } from '../api/order';
 import useAuth from '../hooks/useAuth';
 import Order from '../components/Orders/Order';
+import Seo from '../components/Seo';
 
 export default function orders() {
     const [orders, setOrders] = useState(null);
@@ -22,6 +23,8 @@ export default function orders() {
             <div className='orders__block'>
                 <div className='title'>Mis Pedidos</div>
                 <div className='data'>
+                <Seo title={`Orders`}/>
+                {!orders && <Loader active>Cargando Configuracion</Loader>}
                     {size(orders) === 0 ?(
                         <h2 style={{textAlign: 'center'}}>
                             Todavia no has realizado ninguna compra
@@ -40,8 +43,8 @@ function OrderList(props){
 
     return(
         <Grid>
-            {map(orders, (order) =>(
-                <Grid.Column mobile={16} tablet={6} computer={8}>
+            {map(orders, (order, i) =>(
+                <Grid.Column key={i} mobile={16} tablet={6} computer={8}>
                     <Order order={order}/>
                 </Grid.Column>
             ))}

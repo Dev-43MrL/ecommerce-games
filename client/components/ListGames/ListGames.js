@@ -40,15 +40,16 @@ function Game(props){
     const {game}=props;
     
     return(
-        <Grid.Column className='list-game__game'>
+        <Grid.Column>
             <Link href={`/${game.url}`}>
                 <a>
-                    <div className='list-games__game-poster'>
-                        <Image layout='fill' src={game.poster.url} alt={game.title}  />
-                    </div>
+                    <Card
+                        image={game.poster}
+                        header={game.title}
+                        meta={game.releaseDate}
+                    />
                 </a>           
             </Link>
-            <h3>{game.title}</h3>
         </Grid.Column>
     )
 }

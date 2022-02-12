@@ -138,13 +138,13 @@ export default function AddressForm(props){
                         error={formik.errors.city}  
                     />
                     <Form.Input 
-                        name='state'
+                        name='estate'
                         type='text'
                         label='Estado/Provincia/Region' 
                         placeholder='Estado/Provincia/Region'
                         onChange={formik.handleChange}
-                        value={formik.values.state}
-                        error={formik.errors.state}  
+                        value={formik.values.estate}
+                        error={formik.errors.estate}  
                     />
                 </Form.Group>
                 <Form.Group widths='equal'>
@@ -188,7 +188,7 @@ function initialValues(address){
         name:address?.name || '',
         address:address?.address || '',
         city:address?.city || '',
-        state:address?.state || '',
+        estate:address?.estate || '',
         postalCode:address?.postalCode || '',
         phone:address?.phone || '',
     }
@@ -200,7 +200,7 @@ function validationSchema(){
         name:Yup.string().required(true),
         address:Yup.string().required(true),
         city:Yup.string().required(true),
-        state:Yup.string().required(true),
+        estate:Yup.string().required(true),
         postalCode:Yup.string().required(true),
         phone:Yup.string().required(true),
     }

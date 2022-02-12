@@ -3,7 +3,7 @@ import { authFetch } from '../utils/fetch';
 
 export async function registerApi(formData){
     try {
-        const url=`${BASE_PATH}/auth/local/register`;
+        const url=`${BASE_PATH}/auth/signUp`;
         const params={
             method:'POST',
             headers:{
@@ -24,7 +24,7 @@ export async function registerApi(formData){
 
 export async function loginApi(formData){
     try {
-        const url=`${BASE_PATH}/auth`;
+        const url=`${BASE_PATH}/auth/signIn`;
         const params={
             method:'POST',
             headers:{
@@ -34,7 +34,6 @@ export async function loginApi(formData){
         };
 
         const response=await fetch(url, params);
-        console.log(response);
         const result=await response.json();
         return result;
     } catch (error) {

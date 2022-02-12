@@ -38,12 +38,8 @@ export default function BillForm(props) {
             fileJson:{fileBill},
         };
 
-        console.log(fileDataTemp);
-
         const response=await createBillsApi(formDataTemp, logout);
         const responsefile=await addFileBillApi(fileDataTemp, logout);  
-
-        console.log(responsefile);
 
         if(!response){
             toast.error('Error', {

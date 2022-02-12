@@ -8,6 +8,7 @@ const stripePromise= loadStripe(STRIPE_TOKEN);
 
 export default function Payment(props) {
     const {products, address}=props;
+
     return (
         <div className='payment'>
             <div className='title'>Pago</div>

@@ -13,6 +13,7 @@ export default function Game() {
     useEffect(() => {
         (async () => {
             const response= await getGameByUrlApi(query.game);
+            
             setGame(response);
         })()
     }, [])

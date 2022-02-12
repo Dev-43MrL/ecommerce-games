@@ -5,14 +5,14 @@ import BasicModal from '../../Modal/BasicModal';
 import Auth from '../../Auth/Auth';
 import useAuth from '../../../hooks/useAuth';
 import { getMeApi } from '../../../api/user';
-//import { getPlatformApi } from '../../../api/platform';
-//import {map} from 'lodash';
+import { getPlatformApi } from '../../../api/platform';
+import {map} from 'lodash';
 import useCart from '../../../hooks/useCart';
 
 export default function MenuWeb() {
 
     // ------------------ Hooks ------------------
-    //const [platforms, setPlatforms] =useState({});
+    const [platforms, setPlatforms] =useState({});
     const [showModal, setShowModal] = useState(false);
     const [titleModal, setTitleModal] = useState("Iniciar Sesion");
     const {auth, logout} = useAuth();
@@ -26,12 +26,12 @@ export default function MenuWeb() {
         })()
     }, [auth]);
 
-    // useEffect(() => {
-    //     (async () => {
-    //         const response = await getPlatformApi();
-    //         setPlatforms(response);
-    //     })()
-    // }, []);
+    useEffect(() => {
+        (async () => {
+            const response = await getPlatformApi();
+            setPlatforms(response);
+        })()
+    }, []);
 
     const onShowModal=()=> setShowModal(true);
     const onCloseModal=()=> setShowModal(false);
@@ -40,11 +40,11 @@ export default function MenuWeb() {
         <div className='menu'>
             <Container>
                 <Grid>
-                    {/* <Grid.Column className='menu__left' width={6}>
-                        <MenuPlatforms                                          Plataformas
+                    <Grid.Column className='menu__left' width={6}>
+                        <MenuPlatforms 
                             platforms={platforms}
                         />
-                    </Grid.Column> */}
+                    </Grid.Column>
                     <Grid.Column className='menu__right' width={16}>
                         {user !== undefined && (
                             <MenuOptions 
@@ -63,20 +63,20 @@ export default function MenuWeb() {
     )
 }
 
-// function MenuPlatforms(props){
-//     const {platforms}=props;
-//     return(
-//         <Menu>
-//             {map(platforms, (platform)=>(
-//                 <Link href={`/games/${platform.url}`} key={platform._id}>                 
-//                     <Menu.Item as='a' name='{platform.url'>
-//                         {platform.title}
-//                     </Menu.Item>
-//                 </Link>
-//             ))}
-//         </Menu>
-//     );
-// }
+function MenuPlatforms(props){
+    const {platforms}=props;
+    return(
+        <Menu>
+            {map(platforms, (platform)=>(
+                <Link href={`/games/${platform.url}`} key={platform._id}>                 
+                    <Menu.Item as='a' name={platform.url}>
+                        {platform.title}
+                    </Menu.Item>
+                </Link>
+            ))}
+        </Menu>
+    );
+}
 
 function MenuOptions(props){
     const {onShowModal, user, logout}=props;
@@ -107,7 +107,7 @@ function MenuOptions(props){
                         </Link>
                         <Link href='/account'>
                             <Menu.Item as='a'>
-                                <Icon name='user outline'/> 
+                                <Icon name='user outline'/>
                                 {user.name} {user.lastname}
                             </Menu.Item>
                         </Link>
@@ -136,5 +136,3 @@ function MenuOptions(props){
         </Menu>
     );
 }
-
-//mongodb+srv://admin:next123456@ecommerce.jljdk.mongodb.net/ecommerce?retryWrites=true&w=majority

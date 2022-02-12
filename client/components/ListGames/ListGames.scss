@@ -1,7 +1,7 @@
 .list-games {
   img {
-    height: 250px;
-    width: 250px;
+    height: 100%;
+    width: 100%;
     object-fit: contain;
   }
   h3 {
@@ -16,4 +16,8 @@
     background-color: $background-light;
     padding: 10px;
   }
+}
+
+.ui.card>.content{
+  height: auto;
 }

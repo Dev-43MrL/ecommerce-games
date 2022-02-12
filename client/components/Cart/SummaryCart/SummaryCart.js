@@ -36,10 +36,11 @@ export default function SummaryCart(props) {
                     </Table.Header>
                     <Table.Body>
                         {map(products, (product)=>(
-                            <Table.Row key={product.id} className='summary-cart__product'>
+                            <Table.Row key={product._id} className='summary-cart__product'>
+                                {console.log(product)}
                                 <Table.Cell>
                                     <Icon name='close' link onClick={()=>removeProduct(product.url)}/>
-                                    <Image src={product.poster.url} alt={product.title}/>
+                                    <Image src={product.poster} alt={product.title}/>
                                     {product.title}
                                 </Table.Cell>
                                 <Table.Cell>

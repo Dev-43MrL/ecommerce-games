@@ -21,7 +21,7 @@ export default function FormPayment(props) {
         event.preventDefault();
         setLoading(true);
         
-        if(!stripe || !elements)return;
+        if(!stripe || !elements) return;
 
         const cardElement=elements.getElement(CardElement);
         const result= await stripe.createToken(cardElement);
@@ -44,7 +44,7 @@ export default function FormPayment(props) {
                 address,
                 logout
             );
-
+            console.log(response, 'respknse')
             if(size(response)>0){
                 toast.success('Pedido Completado', {
                     position: "top-right",

@@ -13,7 +13,7 @@ export default function HeaderGame(props) {
     return (
         <Grid className='header-game'>
             <Grid.Column mobile={16} table={6} computer={5}>
-                <Image src={poster.url} alt={title} fluid />
+                <Image src={poster} alt={title} fluid />
             </Grid.Column>
 
             <Grid.Column mobile={16} table={10} computer={11}>
@@ -33,8 +33,7 @@ function Info(props){
 
     useEffect(() => {
         (async () => {
-            const response= await isFavoriteApi(auth.idUser, game.id, logout);
-
+            const response= await isFavoriteApi(auth?.idUser, game._id, logout);
             if(size(response) > 0) setIsFavorite(true);
             else setIsFavorite(false);
 
@@ -45,14 +44,14 @@ function Info(props){
 
     const addFavorite=async()=>{
         if(auth){
-            await addFavoriteApi(auth.idUser, game.id, logout);
+            await addFavoriteApi(auth.idUser, game._id, logout);
             setFavoriteReload(true);
         }
     }
 
     const deleteFavorite=async()=>{
         if(auth){
-            await deleteFavoriteApi(auth.idUser, game.id, logout);
+            await deleteFavoriteApi(auth.idUser, game._id, logout);
             setFavoriteReload(true);
         }
     }

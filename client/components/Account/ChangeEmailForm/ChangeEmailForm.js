@@ -15,7 +15,7 @@ export default function ChangeEmailForm(props) {
         validationSchema:Yup.object(validationSchema()),
         onSubmit:async(formData)=>{
             setLoading(true);
-            const response= await updateEmailApi(user.id, formData, logout);
+            const response= await updateEmailApi(user.uid, formData, logout);
 
             if(!response || response?.statusCode === 400){
                 toast.error('Error al actualizar su email', {

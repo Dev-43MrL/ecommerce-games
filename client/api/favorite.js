@@ -58,7 +58,7 @@ export async function deleteFavoriteApi(idUser, idGame, logout) {
 
 export async function getFavoriteApi(idUser, logout) {
     try {
-        const url=`${BASE_PATH}/favorites?user=${idUser}`;
+        const url=`${BASE_PATH}/favorites/${idUser}`;
         const result= await authFetch(url, null, logout);
         return result;
     } catch (error) {

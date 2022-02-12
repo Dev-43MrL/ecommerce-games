@@ -28,7 +28,7 @@ export default function MyApp({ Component, pageProps }) {
     if(token){
       setAuth({
         token,
-        idUser:jwtDecode(token).id,
+        idUser:jwtDecode(token).uid,
       });
     }else{
       setAuth(null);
@@ -47,7 +47,7 @@ export default function MyApp({ Component, pageProps }) {
     setToken(token);
     setAuth({
       token,
-      idUser:jwtDecode(token).id,
+      idUser:jwtDecode(token).uid,
     });
   };
 

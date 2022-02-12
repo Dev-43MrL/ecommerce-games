@@ -10,11 +10,11 @@ export default function ChangeNameForm(props) {
     const [loading, setLoading] = useState(false);
 
     const formik=useFormik({
-        initialValues:initialValues(user.name, user.lastname),
+        initialValues:initialValues(user.name, user.lastname ),
         validationSchema:Yup.object(validationSchema()),
         onSubmit:async(formData)=>{
             setLoading(true);
-            const response= await updateNameApi(user.id, formData, logout);
+            const response= await updateNameApi(user.uid, formData, logout);
 
             if(!response){
                 toast.error('Error al actualizar nombre y apellido', {

@@ -18,7 +18,6 @@ export default function search() {
         (async () => {
             if(size(query.query)>0){
                 const response=await searchGamesApi(query.query);
-                console.log(response);
                 if(size(response)>0) setGames(response);
                 else setGames([]);
             }else{

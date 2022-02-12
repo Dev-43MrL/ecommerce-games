@@ -5,6 +5,7 @@ import { getFavoriteApi } from '../api/favorite';
 import useAuth from '../hooks/useAuth';
 import ListGames from '../components/ListGames';
 import { Loader } from 'semantic-ui-react';
+import Seo from '../components/Seo';
 
 export default function wishlist() {
     const [games, setGames] = useState(null);
@@ -32,6 +33,7 @@ export default function wishlist() {
             <div className='wishlist__block'>
                 <div className='title' > Lista de favoritos</div>
                 <div className='data'>
+                    <Seo title={`Wishlist`}/>
                     {!games && <Loader active>Cargando Juegos</Loader>}
                     {games && size(games) === 0 &&(
                         <div>

@@ -10,6 +10,8 @@ import { Icon } from 'semantic-ui-react';
 import BasicModal from '../components/Modal/BasicModal';
 import AddressForm from '../components/Account/AddressForm';
 import ListAddress from '../components/Account/ListAddress';
+import { Loader } from 'semantic-ui-react';
+import Seo from '../components/Seo';
 
 export default function Account() {
 
@@ -33,6 +35,8 @@ export default function Account() {
 
     return (
         <BasicLayout className='account'>
+            <Seo title={`Account ${user.name} ${user.lastname}`}/>
+            {!user && <Loader active>Cargando Configuracion</Loader>}
             <Configuration 
                 user={user} 
                 logout={logout} 

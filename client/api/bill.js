@@ -31,7 +31,6 @@ export async function addFileBillApi(data, logout){
             body: JSON.stringify(data),
         };
         const result= await authFetch(url,params,logout);
-        console.log(result);
         return result;
     } catch (error) {
         console.log(error);

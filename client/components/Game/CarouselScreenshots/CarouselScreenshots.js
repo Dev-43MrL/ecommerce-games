@@ -3,7 +3,6 @@ import { Image, Modal } from 'semantic-ui-react';
 import Slider from 'react-slick';
 import { map } from 'lodash';
 
-
 const settings={
     className:"carousel-screenshots",
     dots: false,
@@ -22,13 +21,12 @@ export default function CarouselScreenshots(props) {
         setUrlImage(url);
         setShowModal(true);
     }
-
     return (
         <>
             <Slider {...settings}>
                 {map(screenshots, (screenshot)=>(
                     <Image 
-                        key={screenshot.id}
+                        key={screenshot._id}
                         src={screenshot.url}
                         alt={screenshot.name}
                         onClick={()=>openImagen(screenshot.url)}

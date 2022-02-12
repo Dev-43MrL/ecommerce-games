@@ -19,15 +19,39 @@ export function addProductCart(product) {
 
   if (!cart) {
     localStorage.setItem(CART, product);
-    toast.success("Producto añadido al carrito");
+    toast.success("Producto añadido al carrito",{
+      position: "top-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+  });
   } else {
     const productFound = includes(cart, product);
     if (productFound) {
-      toast.warning("Este producto ya esta en el carrito");
+      toast.warning("Este producto ya esta en el carrito",{
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+    });
     } else {
       cart.push(product);
       localStorage.setItem(CART, cart);
-      toast.success("Producto añadido correctamente");
+      toast.success("Producto añadido correctamente",{
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+    });
     }
   }
 }
@@ -57,6 +81,9 @@ export function removeProductCart(product) {
 }
 
 export async function paymentCartApi(token, products, idUser, address, logout) {
+
+  console.log(token, products, idUser, address)
+
   try {
     const addressShipping = address;
     delete addressShipping.user;
