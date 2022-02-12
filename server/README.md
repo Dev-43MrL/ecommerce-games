@@ -1,3 +1,6 @@
-# Strapi application
+# REST-Server
+REST Server - Configuraciones iniciales 
 
-A quick description of your strapi application
+Recuerden que deben ejecutar ``` npm i ``` para reconstruir los modulos de node
+
+

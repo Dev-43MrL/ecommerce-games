@@ -1,8 +1,0 @@
-{
-    "provider":"cloudinary",
-    "providerOptions":{
-        "cloud_name": "dtbugfvvi", 
-    "api_key": "479675992511692", 
-    "api_secret": "k7aZ9HVYXwqPMesWYLD2Xsq3fnY" 
-    }
-}
