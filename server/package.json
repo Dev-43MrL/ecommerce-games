@@ -11,7 +11,7 @@
   },
   "devDependencies": {},
   "dependencies": {
-    "cloudinary": "^1.27.0",
+    "cloudinary": "^1.28.1",
     "strapi": "3.6.8",
     "strapi-admin": "3.6.8",
     "strapi-connector-mongoose": "3.6.8",
@@ -24,7 +24,7 @@
     "strapi-provider-upload-cloudinary": "^3.6.8",
     "strapi-provider-upload-local": "^3.6.8",
     "strapi-utils": "3.6.8",
-    "stripe": "^8.175.0"
+    "stripe": "^8.203.0"
   },
   "author": {
     "name": "A Strapi developer"
